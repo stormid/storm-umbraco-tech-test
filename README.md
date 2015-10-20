@@ -3,9 +3,11 @@
 # Introduction
 This test is designed to allow you to show us your knowledge and experience of Umbraco within a *real world* example.
 
-We have created a set of rough html wireframes for a new website.  To get started either download the current latest master release (.zip) or fork the repository and work from there, the choice is yours.
+We have created a set of html wireframes for a new website.  To get started either download the current latest master release (.zip) or fork the repository and work from there, the choice is yours.
 
 Your task is to integrate the supplied wireframes into a new Umbraco site and make them dynamic so that an Umbraco Admin user can update this mini website.
+
+We are looking for a Visual Studio solution that contains the new Umbraco website.  Remember to include an Umbraco username and password so that we can log in
 
 The task is designed to form discussion points during an interview.
 
