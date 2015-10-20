@@ -19,15 +19,16 @@ These are things that might help you while you are integrating the templates.
 * Admin controlled feature panels on the home page
 * Optional header images on article pages (About Us)
 * Optional images on News page
-* Contact us form to save data into Umbraco
+* Contact Us form to save data into Umbraco and/or database table (without using the Umbraco Forms package)
+* Custom Umbraco Admin Section to export Contact Us form data
 * Meta data updated by Admin user
 
 # Optional things to look at
 These are things that are completely optional. They would generally be things we add in while building a "real" site, but we are not expecting them to be completed. We might end up discussing your thoughts on them during the interview.
 
 * Paging on the news listing page
+* News only search
 * Site-wide search
-* Data export of Contact us form data
 
 # Wireframes
 The following wireframes have been supplied for integration.
