@@ -40,8 +40,8 @@ The following wireframes have been supplied for integration.
 * Contact Us
 
 # Examples
-* http://umbracotestsite.staging.stormid.com/home.html
-* http://umbracotestsite.staging.stormid.com/about.html
-* http://umbracotestsite.staging.stormid.com/news.html
-* http://umbracotestsite.staging.stormid.com/newsdetails.html
-* http://umbracotestsite.staging.stormid.com/contactus.html
+* http://umbracotechtest.staging.stormid.com/home.html
+* http://umbracotechtest.staging.stormid.com/about.html
+* http://umbracotechtest.staging.stormid.com/news.html
+* http://umbracotechtest.staging.stormid.com/newsdetails.html
+* http://umbracotechtest.staging.stormid.com/contactus.html
