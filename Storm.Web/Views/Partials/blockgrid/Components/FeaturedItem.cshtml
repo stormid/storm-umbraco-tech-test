@@ -1,0 +1,26 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockGridItem>
+@{
+    var content = Model.Content as FeaturedItem;
+    var settings = Model.Settings as FeaturedItemSettings;
+    var link = content?.Link;
+}
+
+@if (!settings.Hidden)
+{
+
+    <div class="@(Model.ColumnSpan + "u")">
+        <!-- Feature -->
+        <section class="is-feature">
+            <a href="@(link != null ? link.Url : "")" class="image image-full">
+                <nullimage content="content.Image" />
+            </a>
+            <h3>
+                <a href="@(link != null ? link.Url : "")">@content.Title</a>
+            </h3>
+            @Html.Raw(content.Summary)
+        </section>
+        <!-- /Feature -->
+    </div>
+
+}

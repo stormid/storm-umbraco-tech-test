@@ -1,0 +1,38 @@
+﻿<div ng-controller="storm.messagesController" class="">
+
+    <umb-editor-header name="model.title" 
+                       name-locked="true"
+                       icon="'icon-inbox'" 
+                       alias-locked="true"
+                       description="'Contact requests submitted from the Contact Us component.'"
+                       description-locked="true"
+                       hide-alias="true"
+                       show-back-button="false">
+    </umb-editor-header>
+
+    <umb-editor-container>
+        <umb-load-indicator ng-if="loading"></umb-load-indicator>
+
+        <umb-table ng-if="messages"
+                   icon="icon-price-pound" ,
+                   items="messages"
+                   item-properties="options.includeProperties"
+                   on-click="clickItem(item)"
+                   on-select="selectItem(item, $index, $event)"
+                   on-sort="sort(field, allow, isSystem)"
+                   on-sorting-direction="isSortDirection(col, direction)">
+        </umb-table>
+        <umb-empty-state ng-if="messages.length == 0" position="center">
+            <localize key="general_searchNoResult"></localize>
+        </umb-empty-state>
+
+    </umb-editor-container>
+
+    <umb-editor-footer>
+        <umb-editor-footer-content-left>
+            Total Messages: {{messages.length}}
+        </umb-editor-footer-content-left>
+    </umb-editor-footer>
+
+</div>
+

@@ -1,0 +1,40 @@
+﻿@using Microsoft.Extensions.Options
+@using Storm.Core.ViewComponents;
+@using Umbraco.Cms.Core.Configuration.Models
+@using Umbraco.Cms.Web.Common.PublishedModels;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    @await Component.InvokeAsync(nameof(MetaData), Model)
+    @await Component.InvokeAsync(nameof(HeaderAssets), Model)
+</head>
+<body class="homepage">
+    <!-- Header -->
+    @await Component.InvokeAsync(nameof(Header))
+    <!-- /Header -->
+
+    <!-- Nav -->
+    @await Component.InvokeAsync(nameof(Navigation))
+    <!-- /Nav -->
+    
+    <!-- Main -->
+    <div id="main-wrapper">
+        <div id="main" class="container">
+             @RenderBody()
+        </div>
+    </div>
+    <!-- /Main -->
+
+    <!-- Footer -->
+    @await Component.InvokeAsync(nameof(Footer))
+    <!-- /Footer -->
+
+
+</body>
+</html>

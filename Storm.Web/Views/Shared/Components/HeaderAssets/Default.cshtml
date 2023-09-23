@@ -1,0 +1,19 @@
+﻿@using Microsoft.Extensions.Options
+@using Storm.Core.ViewComponents;
+@using Umbraco.Cms.Core.Configuration.Models
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject IOptions<HostingSettings> hostingSettings
+@{
+    var debugMode = hostingSettings.Value.Debug;
+}
+
+<link rel="canonical" href="@(Model.Url(mode: UrlMode.Absolute))" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
+<script src="registered-js-bundle" debug="@debugMode"></script>
+<link rel="stylesheet" href="registered-css-bundle" />
+
+
+<!--[if lte IE 9]><link rel="stylesheet" href="registered-css-bundle-lte-ie9" /><![endif]-->
+<!--[if lte IE 8]><script src="registered-js-bundle-lt-ie8" debug="@debugMode"></script><link rel="stylesheet" href="registered-css-bundle-lte-ie8" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" href="registered-css-bundle-lte-ie7" /><![endif]-->

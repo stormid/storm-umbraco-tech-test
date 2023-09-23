@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var root = Umbraco.ContentAtRoot().FirstOrDefault();
+    var selection = root?.Children().Where(x => x.IsVisible()) ?? Enumerable.Empty<IPublishedContent>();
+    var currentPage = Umbraco.AssignedContentItem;
+}
+
+<nav id="nav" class="skel-panels-fixed">
+    <ul>
+        <li class="@(currentPage.Url() == root?.Url() ? "current_page_item" : "")"><a href="@root?.Url()">@root?.Name</a></li>
+        @foreach (var item in selection)
+        {
+            <li class="@(currentPage.Url() == item.Url() ? "current_page_item" : "")">
+                <a href="@item.Url()">@item.Name()</a>
+            </li>
+        }
+    </ul>
+</nav>
+

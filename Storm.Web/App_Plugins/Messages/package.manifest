@@ -1,0 +1,6 @@
+﻿{
+  "javascript": [
+    "~/App_Plugins/Messages/js/storm.messagesController.js",
+    "~/App_Plugins/Messages/js/messages.resource.js"
+  ]
+}
