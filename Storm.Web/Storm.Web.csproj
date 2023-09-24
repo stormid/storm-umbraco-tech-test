@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="umbraco\Logs\" />
+    <Folder Include="umbraco\" />
   </ItemGroup>
 
   <PropertyGroup>
