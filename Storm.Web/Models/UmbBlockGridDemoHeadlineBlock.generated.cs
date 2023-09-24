@@ -18,9 +18,19 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
+	// Mixin Content Type with alias "umbBlockGridDemoHeadlineBlock"
+	/// <summary>Headline</summary>
+	public partial interface IUmbBlockGridDemoHeadlineBlock : IPublishedElement
+	{
+		/// <summary>Headline</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string Headline { get; }
+	}
+
 	/// <summary>Headline</summary>
 	[PublishedModel("umbBlockGridDemoHeadlineBlock")]
-	public partial class UmbBlockGridDemoHeadlineBlock : PublishedElementModel
+	public partial class UmbBlockGridDemoHeadlineBlock : PublishedElementModel, IUmbBlockGridDemoHeadlineBlock
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,11 +60,16 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Headline
+		/// Headline: Enter the main headline for this page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("headline")]
-		public virtual string Headline => this.Value<string>(_publishedValueFallback, "headline");
+		public virtual string Headline => GetHeadline(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Headline</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetHeadline(IUmbBlockGridDemoHeadlineBlock that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "headline");
 	}
 }

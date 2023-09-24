@@ -8,12 +8,17 @@
     var debugMode = hostingSettings.Value.Debug;
 }
 
-<link rel="canonical" href="@(Model.Url(mode: UrlMode.Absolute))" />
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
-<script src="registered-js-bundle" debug="@debugMode"></script>
-<link rel="stylesheet" href="registered-css-bundle" />
-
-
-<!--[if lte IE 9]><link rel="stylesheet" href="registered-css-bundle-lte-ie9" /><![endif]-->
-<!--[if lte IE 8]><script src="registered-js-bundle-lt-ie8" debug="@debugMode"></script><link rel="stylesheet" href="registered-css-bundle-lte-ie8" /><![endif]-->
-<!--[if lte IE 7]><link rel="stylesheet" href="registered-css-bundle-lte-ie7" /><![endif]-->
+<link rel="canonical" href="@Model.Url(mode: UrlMode.Absolute)" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700" rel="stylesheet" />
+<script src="/assets/js/jquery.min.js" debug=@debugMode></script>
+<script src="/assets/js/config.js" debug=@debugMode></script>
+<script src="/assets/js/skel.min.js" debug=@debugMode></script>
+<script src="/assets/js/skel-panels.min.js debug=@debugMode"></script>
+<noscript>
+    <link rel="stylesheet" href="/assets/css/skel-noscript.css" debug=@debugMode />
+    <link rel="stylesheet" href="/assets/css/style.css" debug=@debugMode />
+    <link rel="stylesheet" href="/assets/css/style-desktop.css" debug=@debugMode />
+</noscript>
+<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+<!--[if lte IE 8]><script src="/assets/js/html5shiv.js"></script><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" href="/assets/css/ie7.css" /><![endif]-->

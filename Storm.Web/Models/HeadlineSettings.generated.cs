@@ -18,24 +18,24 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	// Mixin Content Type with alias "umbBlockGridDemoRichTextBlock"
-	/// <summary>Rich Text</summary>
-	public partial interface IUmbBlockGridDemoRichTextBlock : IPublishedElement
+	// Mixin Content Type with alias "headlineSettings"
+	/// <summary>Headline Settings</summary>
+	public partial interface IHeadlineSettings : IPublishedElement
 	{
-		/// <summary>Text</summary>
+		/// <summary>Headline Style</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString RichText { get; }
+		string HeadlineStyle { get; }
 	}
 
-	/// <summary>Rich Text</summary>
-	[PublishedModel("umbBlockGridDemoRichTextBlock")]
-	public partial class UmbBlockGridDemoRichTextBlock : PublishedElementModel, IUmbBlockGridDemoRichTextBlock
+	/// <summary>Headline Settings</summary>
+	[PublishedModel("headlineSettings")]
+	public partial class HeadlineSettings : PublishedElementModel, IHeadlineSettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
-		public new const string ModelTypeAlias = "umbBlockGridDemoRichTextBlock";
+		public new const string ModelTypeAlias = "headlineSettings";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
@@ -44,14 +44,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<UmbBlockGridDemoRichTextBlock, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<HeadlineSettings, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public UmbBlockGridDemoRichTextBlock(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public HeadlineSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -60,16 +60,16 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Text
+		/// Headline Style: Select the headline type. Defaults to {strong}H1{/strong}
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("richText")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString RichText => GetRichText(this, _publishedValueFallback);
+		[ImplementPropertyType("headlineStyle")]
+		public virtual string HeadlineStyle => GetHeadlineStyle(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Text</summary>
+		/// <summary>Static getter for Headline Style</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetRichText(IUmbBlockGridDemoRichTextBlock that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "richText");
+		public static string GetHeadlineStyle(IHeadlineSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "headlineStyle");
 	}
 }

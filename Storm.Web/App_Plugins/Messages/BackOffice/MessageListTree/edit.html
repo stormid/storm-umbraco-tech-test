@@ -32,6 +32,9 @@
         <umb-editor-footer-content-left>
             Total Messages: {{messages.length}}
         </umb-editor-footer-content-left>
+        <umb-editor-footer-content-right>
+            <button ng-if="messages.length > 0" type="button" class="btn" ng-click="download()">Download</button>
+        </umb-editor-footer-content-right>
     </umb-editor-footer>
 
 </div>

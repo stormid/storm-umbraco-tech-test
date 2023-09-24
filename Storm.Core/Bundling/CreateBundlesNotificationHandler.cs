@@ -28,7 +28,7 @@ namespace Storm.Core.Bundling
                     BundlingOptions.NotOptimizedAndComposite,
                     new[] {
                         "~/assets/js/jquery.min.js",
-                       // "~/assets/js/config.js",
+                        "~/assets/js/config.js",
                         "~/assets/js/skel.min.js",
                         "~/assets/js/skel-panels.min.js"
                     });

@@ -5,7 +5,9 @@
     var typedMediaPickerSingle = Model.Content.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("image");
     if (typedMediaPickerSingle != null)
     {
+        <span class="image image-full">
         <img src="@typedMediaPickerSingle.MediaUrl()" style="object-fit:cover; width:100%; height:100%;"/>
+        </span>
     } else {
         <p>Missing image</p>
     }

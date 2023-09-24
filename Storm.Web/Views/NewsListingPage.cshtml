@@ -1,0 +1,55 @@
+﻿@using Storm.Core.ViewComponents;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.NewsListingPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Layout.cshtml";
+    var hasPageHeading = (Model is IUmbBlockGridDemoHeadlineBlock);
+    var pageColSize = Model.PageWidth;
+}
+
+
+
+<div class="@(pageColSize)u skel-cell-mainContent">
+    <div class="content">
+        <!-- Content -->
+        <article class="is-page-content">
+            
+            @if (hasPageHeading)
+            {
+                <header>
+                    @switch (Model.HeadlineStyle)
+                    {
+                        case "H1":
+                            <h1>@Model.Headline</h1>
+                            break;
+                        case "H2":
+                            <h2>@Model.Headline</h2>
+                            break;
+                        case "H3":
+                            <h3>@Model.Headline</h3>
+                            break;
+                        case "H4":
+                            <h4>@Model.Headline</h4>
+                            break;
+                        case "H5":
+                            <h5>@Model.Headline</h5>
+                            break;
+                        default:
+                            <h2>@Model.Headline</h2>
+                            break;
+                    }
+                </header>
+            }
+
+            @if (Model.Children<NewsArticle>().Any())
+            {
+                foreach (var newsItem in Model.Children<NewsArticle>().Where(x => x.IsVisible()))
+                {
+                    @await Component.InvokeAsync(nameof(NewsItemSummary), newsItem)
+                }
+            }
+        </article>
+        <!-- /Content -->
+    </div>
+</div>

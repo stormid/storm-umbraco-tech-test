@@ -6,6 +6,10 @@
     var redirectToPageId = content?.ThankYouPage?.Id;
 }
 
+@section additionalAssets {
+    <link rel="stylesheet" href="/assets/css/bootstrap.css" />
+}
+
 @if (TempData["ContactSuccess"] == null || (bool)TempData["ContactSuccess"] == false)
 {
     @using (Html.BeginUmbracoForm<ContactUsController>(nameof(ContactUsController.SubmitForm), null, new { @class = "form-horizontal" }, FormMethod.Post))

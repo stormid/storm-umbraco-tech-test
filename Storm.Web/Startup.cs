@@ -38,7 +38,7 @@ namespace Storm.Web
                 .AddWebsite()
                 .AddDeliveryApi()
                 .AddComposers()
-                .AddNotificationHandler<UmbracoApplicationStartingNotification, CreateBundlesNotificationHandler>()
+                //.AddNotificationHandler<UmbracoApplicationStartingNotification, CreateBundlesNotificationHandler>()
                 .AddSection<MessagesSection>()
                 .Build();
         }

@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<NewsArticle>
+@{
+    var publishedDate = Model.CreateDate.ToString("dddd, MMMM dd, yyyy h:mm tt");
+    var hasImage = Model.Image != null;
+}
+
+
+<section>
+    <h3>
+        <a href="@Model.Url()">@Model.Headline</a>
+    </h3>
+    <span class="byline"></span>
+    <ul class="meta">
+        <li class="timestamp">@publishedDate</li>
+    </ul>
+
+    @if(hasImage)
+    {
+        <a href="@Model.Url()" class="image image-full"><img src="@Model.Image.Url()" alt="@Model.Image.Name" /></a>
+    }
+
+    @Html.TruncateByWords(Html.Raw(Model.RichText), 30)
+
+    <a href="@Model.Url()" class="button">Read more</a>
+</section>

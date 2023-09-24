@@ -13,6 +13,7 @@
 <head>
     @await Component.InvokeAsync(nameof(MetaData), Model)
     @await Component.InvokeAsync(nameof(HeaderAssets), Model)
+    @RenderSection("additionalAssets", false)
 </head>
 <body class="homepage">
     <!-- Header -->
@@ -26,7 +27,9 @@
     <!-- Main -->
     <div id="main-wrapper">
         <div id="main" class="container">
-             @RenderBody()
+             <div class="row">
+                @RenderBody()
+             </div>
         </div>
     </div>
     <!-- /Main -->
