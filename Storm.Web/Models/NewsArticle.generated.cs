@@ -50,7 +50,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Headline Style: Select the headline type. Defaults to {strong}H1{/strong}
+		/// Headline Style: Select the headline type. Defaults to {strong}H2{/strong} if not set.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -58,7 +58,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string HeadlineStyle => global::Umbraco.Cms.Web.Common.PublishedModels.HeadlineSettings.GetHeadlineStyle(this, _publishedValueFallback);
 
 		///<summary>
-		/// Page Width
+		/// Page Width: Select how wide the page content should be: Each page is divided into 12 units (columns). Min value is 6.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
 		[ImplementPropertyType("pageWidth")]

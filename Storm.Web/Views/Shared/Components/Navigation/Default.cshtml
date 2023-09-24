@@ -1,6 +1,6 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-    var root = Umbraco.ContentAtRoot().FirstOrDefault();
+    var root = Umbraco.ContentAtRoot().Where(x => x.ContentType.Alias == "homePage").FirstOrDefault();
     var selection = root?.Children().Where(x => x.IsVisible()) ?? Enumerable.Empty<IPublishedContent>();
     var currentPage = Umbraco.AssignedContentItem;
 }

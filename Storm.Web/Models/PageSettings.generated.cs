@@ -59,7 +59,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Page Width
+		/// Page Width: Select how wide the page content should be: Each page is divided into 12 units (columns). Min value is 6.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.2.0+173d8dc")]
 		[ImplementPropertyType("pageWidth")]

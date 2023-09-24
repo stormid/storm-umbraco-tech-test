@@ -2,19 +2,46 @@
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.NewsListingPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inject Umbraco.Cms.Core.IPublishedContentQuery publishedContentQuery
 @{
-	Layout = "Layout.cshtml";
+    Layout = "Layout.cshtml";
     var hasPageHeading = (Model is IUmbBlockGridDemoHeadlineBlock);
     var pageColSize = Model.PageWidth;
+    var isSearch = Context.Request.QueryString.HasValue;
+    var pageNumber = (!string.IsNullOrWhiteSpace(Context.Request.Query["page"])) ? Convert.ToInt32(Context.Request.Query["page"]) : 0;
+    var searchQuery = Context.Request.Query["query"];
+    IEnumerable<NewsArticle> results = null;
+
+    if (isSearch && !string.IsNullOrWhiteSpace(searchQuery))
+    {
+        results = publishedContentQuery.Search(searchQuery).Where(x => x.Content.ContentType.Alias == "newsArticle").Skip(pageNumber).Take(10).Select(x => x.Content as NewsArticle);
+    }
+    else
+    {
+        results = Model.Children<NewsArticle>().Where(x => x.IsVisible()).Skip(pageNumber).Take(10);
+    }
 }
 
 
 
 <div class="@(pageColSize)u skel-cell-mainContent">
     <div class="content">
+
+        
+
         <!-- Content -->
         <article class="is-page-content">
             
+            <section class="search">
+                <form action="@Model.Url()" method="Get">
+                    <fieldset>
+                        <input type="text" class="search-box" placeholder="Search..." name="query" />
+                        <input type="text" value="@pageNumber" hidden name="page" />
+                        <button class="search-button">Search</button>
+                    </fieldset>
+                </form>
+            </section>
+
             @if (hasPageHeading)
             {
                 <header>
@@ -42,13 +69,18 @@
                 </header>
             }
 
-            @if (Model.Children<NewsArticle>().Any())
+            @if (results.Any())
             {
-                foreach (var newsItem in Model.Children<NewsArticle>().Where(x => x.IsVisible()))
+                foreach (var newsItem in results)
                 {
                     @await Component.InvokeAsync(nameof(NewsItemSummary), newsItem)
                 }
             }
+            else
+            {
+                <p>No results found matching your query</p>
+            }
+
         </article>
         <!-- /Content -->
     </div>

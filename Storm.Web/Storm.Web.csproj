@@ -5,6 +5,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Views\MacroPartials\**" />
+    <Content Remove="Views\MacroPartials\**" />
+    <EmbeddedResource Remove="Views\MacroPartials\**" />
+    <None Remove="Views\MacroPartials\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="App_Plugins\Messages\BackOffice\MessageListTree\edit.html" />
     <Content Include="App_Plugins\Messages\lang\en-US.xml" />
   </ItemGroup>
@@ -28,6 +34,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Storm.BackOffice.Extensions\Storm.BackOffice.Extensions.csproj" />
     <ProjectReference Include="..\Storm.Core\Storm.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="umbraco\Logs\" />
   </ItemGroup>
 
   <PropertyGroup>

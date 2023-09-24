@@ -91,6 +91,10 @@
   {
     margin-bottom: 6em;
   }
+
+section.search {
+    margin-bottom: 2em;
+}
   
   section > :last-child,
   article > :last-child

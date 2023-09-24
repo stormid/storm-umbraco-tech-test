@@ -70,12 +70,12 @@
         //Check the Browser.
         var isIE = false || !!document.documentMode;
         if (isIE) {
-            window.navigator.msSaveBlob(blob1, "messages.csv");
+            window.navigator.msSaveBlob(blob1, "messages.json");
         } else {
             var url = window.URL || window.webkitURL;
             link = url.createObjectURL(blob1);
             var a = $("<a />");
-            a.attr("download", "messages.csv");
+            a.attr("download", "messages.json");
             a.attr("href", link);
             $("body").append(a);
             a[0].click();
