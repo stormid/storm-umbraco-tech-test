@@ -14,6 +14,7 @@
 
     if (isSearch && !string.IsNullOrWhiteSpace(searchQuery))
     {
+        //I could've created a custom Examine index for this, but I'm reluctant to do that (let's discuss why)
         results = publishedContentQuery.Search(searchQuery).Where(x => x.Content.ContentType.Alias == "newsArticle").Skip(pageNumber).Take(10).Select(x => x.Content as NewsArticle);
     }
     else
