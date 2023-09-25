@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storm.Web", "Storm.Web\Stor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storm.Core", "Storm.Core\Storm.Core.csproj", "{9255A766-F067-40B8-9D25-DA8B4561840F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storm.BackOffice.Extensions", "Storm.BackOffice.Extensions\Storm.BackOffice.Extensions.csproj", "{B738E500-1DFD-4084-B9AD-EA71434A4E82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storm.BackOffice.Extensions", "Storm.BackOffice.Extensions\Storm.BackOffice.Extensions.csproj", "{B738E500-1DFD-4084-B9AD-EA71434A4E82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

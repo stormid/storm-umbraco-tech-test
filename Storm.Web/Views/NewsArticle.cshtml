@@ -1,4 +1,6 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Storm.Core.Models.ViewComponents;
+@using Storm.Core.ViewComponents;
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.NewsArticle>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
@@ -18,29 +20,7 @@
 
             @if (hasPageHeading)
             {
-                <header>
-                    @switch (Model.HeadlineStyle)
-                    {
-                        case "H1":
-                            <h1>@Model.Headline</h1>
-                            break;
-                        case "H2":
-                            <h2>@Model.Headline</h2>
-                            break;
-                        case "H3":
-                            <h3>@Model.Headline</h3>
-                            break;
-                        case "H4":
-                            <h4>@Model.Headline</h4>
-                            break;
-                        case "H5":
-                            <h5>@Model.Headline</h5>
-                            break;
-                        default:
-                            <h2>@Model.Headline</h2>
-                            break;
-                    }
-                </header>
+                @await Component.InvokeAsync(nameof(Headline), new HeadlineModel() { Headline = Model.Headline, HeadlineStyle = Model.HeadlineStyle})
             }
 
             <ul class="meta">
@@ -54,7 +34,7 @@
 
                 @Html.Raw(Model.RichText)
 
-                <a href="@Model.Parent.Url()" class="button">Back</a>
+                <a href="@Model.Parent.Url()" class="button">@Umbraco.GetDictionaryValue("BackButton")</a>
             </section>
         </article>
         <!-- /Content -->
