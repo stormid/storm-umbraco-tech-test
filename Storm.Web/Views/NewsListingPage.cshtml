@@ -1,26 +1,30 @@
 ﻿@using Storm.Core.Models.ViewComponents;
+@using Storm.Core.Services;
 @using Storm.Core.ViewComponents;
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.NewsListingPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
-@inject Umbraco.Cms.Core.IPublishedContentQuery publishedContentQuery
+@inject IExamineSearchService examineSearchService;
 @{
     Layout = "Layout.cshtml";
+    IEnumerable<NewsArticle> results = null;
+
     var hasPageHeading = (Model is IUmbBlockGridDemoHeadlineBlock);
     var pageColSize = Model.PageWidth;
     var isSearch = Context.Request.QueryString.HasValue;
     var pageNumber = (!string.IsNullOrWhiteSpace(Context.Request.Query["page"])) ? Convert.ToInt32(Context.Request.Query["page"]) : 0;
     var searchQuery = Context.Request.Query["query"];
-    IEnumerable<NewsArticle> results = null;
+    int take = 10;
+    
+    pageNumber = (pageNumber > 0) ? pageNumber + take : pageNumber;
 
     if (isSearch && !string.IsNullOrWhiteSpace(searchQuery))
     {
-        //I could've created a custom Examine index for this, but I'm reluctant to do that (let's discuss why)
-        results = publishedContentQuery.Search(searchQuery).Where(x => x.Content.ContentType.Alias == "newsArticle").Skip(pageNumber).Take(10).Select(x => x.Content as NewsArticle);
+        results = examineSearchService.Search<NewsArticle>(searchQuery, pageNumber, take);
     }
     else
     {
-        results = Model.Children<NewsArticle>().Where(x => x.IsVisible()).Skip(pageNumber).Take(10);
+        results = Model.Children<NewsArticle>().Where(x => x.IsVisible()).Skip(pageNumber).Take(take);
     }
 }
 
@@ -28,9 +32,6 @@
 
 <div class="@(pageColSize)u skel-cell-mainContent">
     <div class="content">
-
-        
-
         <!-- Content -->
         <article class="is-page-content">
             
